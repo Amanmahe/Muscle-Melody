@@ -30,9 +30,7 @@ import {
 import { useTheme } from "next-themes";
 
 const Websocket = () => {
-  // UI States for Popovers and Buttons
   const sampingrateref = useRef<number>(250);
-  // Buffer Management
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const dataPointCountRef = useRef<number>(2000); // To track the calculated value
   const sweepPositions = useRef<number[]>(new Array(6).fill(0)); // Array for sweep positions
@@ -158,11 +156,9 @@ const Websocket = () => {
       }
 
       wglpRefs.current[index] = wglp;
-
       // Define colors for two different data sets
       const color1 = new ColorRGBA(1, 0, 0, 1); // Red (First data)
       const color2 = new ColorRGBA(0, 1, 1, 1); // Cyan (Second data)
-
       // First data line
       const line1 = new WebglLine(color1, dpCount);
       line1.lineSpaceX(-1, 2 / dpCount);
@@ -364,13 +360,11 @@ const Websocket = () => {
       const middlePct = dpr < 1.5 ? 0.70 : 0.71;
       const edgePct = (1 - middlePct) / 5;
 
-
       // Calculate bar width with safety margins
       const availableWidth = W - (padding * 2);
       const barPaddingFactor = 0.12;
       const barSpace = availableWidth * barPaddingFactor / barCount;
       const barActW = availableWidth / barCount - barSpace;
-
 
       // Fixed height for your top info and bottom labels
       let infoH = 50 * scale;   // tweak to how tall your info block must be
